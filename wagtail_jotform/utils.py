@@ -38,7 +38,7 @@ def fetch_data(url, headers=None, **params):
 
 
 def fetch_jotform_data():
-    limit = wagtail_jotform_settings.get("LIMIT", 50)
+    limit = getattr(wagtail_jotform_settings, "LIMIT", 50)
     headers = {"APIKEY": wagtail_jotform_settings.API_KEY}
     url = f"{wagtail_jotform_settings.API_URL}/user/forms?limit={limit}"
 
